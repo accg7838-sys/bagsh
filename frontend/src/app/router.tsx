@@ -23,7 +23,7 @@ function RequireAdmin({ children }: { children: React.ReactNode }) {
 }
 
 export const router = createBrowserRouter([
-  // Public routes
+  // Public routes (home + rain + write)
   {
     path: '/',
     element: <PublicLayout />,
@@ -31,10 +31,12 @@ export const router = createBrowserRouter([
       { index: true, element: <HomePage /> },
       { path: 'rain', element: <RainPage /> },
       { path: 'write', element: <WriteMessagePage /> },
-      { path: 'teacher', element: <TeacherSelectPage /> },
-      { path: 'teacher/:teacherSlug', element: <TeacherLettersPage /> },
     ],
   },
+
+  // Teacher routes (separate — no PublicLayout)
+  { path: '/teacher', element: <TeacherSelectPage /> },
+  { path: '/teacher/:teacherSlug', element: <TeacherLettersPage /> },
 
   // Admin routes
   {
