@@ -1,0 +1,67 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+enum MessageStatus {
+  PENDING
+  APPROVED
+  REJECTED
+}
+
+model Admin {
+  id           Int      @id @default(autoincrement())
+  name         String
+  email        String   @unique
+  passwordHash String
+  createdAt    DateTime @default(now())
+  updatedAt    DateTime @updatedAt
+}
+
+model Teacher {
+  id        Int             @id @default(autoincrement())
+  name      String
+  subject   String?
+  photoUrl  String?
+  slug      String          @unique
+  pinCode   String?
+  createdAt DateTime        @default(now())
+  updatedAt DateTime        @updatedAt
+
+  letters   TeacherLetter[]
+}
+
+model HomeLetter {
+  id        Int      @id @default(autoincrement())
+  title     String
+  content   String
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+model RainComment {
+  id          Int           @id @default(autoincrement())
+  studentName String
+  className   String?
+  content     String
+  status      MessageStatus @default(PENDING)
+  createdAt   DateTime      @default(now())
+  updatedAt   DateTime      @updatedAt
+}
+
+model TeacherLetter {
+  id          Int           @id @default(autoincrement())
+  teacherId   Int
+  studentName String
+  className   String?
+  content     String
+  status      MessageStatus @default(PENDING)
+  createdAt   DateTime      @default(now())
+  updatedAt   DateTime      @updatedAt
+
+  teacher     Teacher       @relation(fields: [teacherId], references: [id], onDelete: Cascade)
+}
