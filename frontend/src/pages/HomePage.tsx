@@ -23,61 +23,39 @@ export function HomePage() {
   }, []);
 
   return (
-    <div className="min-h-screen flex flex-col items-center justify-center px-4 py-8">
-      {/* Main content */}
+    <div className="min-h-screen flex flex-col items-center justify-center px-6 py-12">
       <div className="relative z-10 max-w-xl w-full text-center">
-        {/* Decorative top */}
-        <div className="text-5xl mb-6">💝</div>
+        <div className="text-6xl mb-8">💝</div>
 
-        <h1 className="text-3xl sm:text-4xl font-bold text-warm mb-6">
+        <h1 className="text-3xl sm:text-4xl font-bold text-warm mb-8">
           {letter?.title || 'Багш нартаа баярлалаа'}
         </h1>
 
         {loading ? (
-          <div className="bg-white/80 backdrop-blur-sm rounded-3xl p-6 sm:p-10 shadow-lg border border-primary/10 animate-pulse">
-            <div className="h-4 bg-primary/10 rounded w-3/4 mx-auto mb-3" />
-            <div className="h-4 bg-primary/10 rounded w-1/2 mx-auto mb-3" />
+          <div className="bg-white rounded-3xl p-8 sm:p-12 shadow-md border border-primary/10 animate-pulse">
+            <div className="h-4 bg-primary/10 rounded w-3/4 mx-auto mb-4" />
+            <div className="h-4 bg-primary/10 rounded w-1/2 mx-auto mb-4" />
             <div className="h-4 bg-primary/10 rounded w-2/3 mx-auto" />
           </div>
         ) : (
-          <div className="bg-white/90 backdrop-blur-sm rounded-3xl p-6 sm:p-10 shadow-lg border border-primary/10 mb-8">
+          <div className="bg-white rounded-3xl p-8 sm:p-12 shadow-md border border-primary/10 mb-10 text-left">
             {letter?.content.split('\n').map((paragraph, i) => (
               paragraph.trim() ? (
-                <p key={i} className="text-base sm:text-lg text-slate leading-relaxed mb-4 last:mb-0">
+                <p key={i} className="text-base sm:text-lg text-slate leading-loose mb-5 last:mb-0">
                   {paragraph}
                 </p>
-              ) : (
-                <br key={i} />
-              )
+              ) : null
             ))}
           </div>
         )}
 
-        {/* Single main button */}
         <Button
           size="lg"
           onClick={() => navigate('/rain')}
-          className="w-full sm:w-auto text-lg px-12 py-4 rounded-2xl"
+          className="text-lg px-14 py-5 rounded-2xl shadow-lg"
         >
           💖 Хүүхдүүдийн сэтгэгдлийг харах
         </Button>
-
-        {/* Subtle secondary links */}
-        <div className="mt-8 flex items-center justify-center gap-6 text-sm">
-          <button
-            onClick={() => navigate('/write')}
-            className="text-warm/60 hover:text-primary transition-colors cursor-pointer underline underline-offset-2"
-          >
-            ✏️ Сэтгэгдэл үлдээх
-          </button>
-          <span className="text-warm/20">|</span>
-          <button
-            onClick={() => navigate('/teacher')}
-            className="text-warm/60 hover:text-primary transition-colors cursor-pointer underline underline-offset-2"
-          >
-            👩‍🏫 Багш нар
-          </button>
-        </div>
       </div>
     </div>
   );
