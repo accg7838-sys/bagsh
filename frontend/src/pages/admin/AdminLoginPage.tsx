@@ -35,12 +35,12 @@ export function AdminLoginPage() {
     <div className="min-h-screen bg-warm-gradient flex items-center justify-center px-4">
       <div className="max-w-sm w-full">
         <div className="text-center mb-8">
-          <h1 className="text-4xl font-bold text-rose-500 mb-2">🌸</h1>
+          <h1 className="text-4xl font-bold text-primary mb-2">🌸</h1>
           <h2 className="text-2xl font-bold text-slate">Админ нэвтрэх</h2>
           <p className="text-slate/50 text-sm mt-1">Багшдаа Баярлалаа</p>
         </div>
 
-        <form onSubmit={handleSubmit} className="bg-white rounded-3xl p-6 sm:p-8 shadow-xl border border-rose-100 space-y-4">
+        <form onSubmit={handleSubmit} className="bg-white rounded-3xl p-6 sm:p-8 shadow-xl border border-primary/10 space-y-4">
           <Input
             label="Email"
             value={email}

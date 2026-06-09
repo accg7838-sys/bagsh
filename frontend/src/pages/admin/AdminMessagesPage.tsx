@@ -90,7 +90,7 @@ export function AdminMessagesPage() {
             onClick={() => setTab(t.key)}
             className={`px-4 py-2 rounded-xl text-sm font-medium transition-all cursor-pointer ${
               tab === t.key
-                ? 'bg-rose-500 text-white shadow-sm'
+                ? 'bg-primary text-white shadow-sm'
                 : 'text-slate/60 hover:text-slate'
             }`}
           >

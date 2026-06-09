@@ -14,7 +14,6 @@ export function RainPage() {
     getRainComments()
       .then(setComments)
       .catch(() => {
-        // Use fallback comments if API fails
         setComments([
           { id: 1, studentName: 'Анужин', className: '10А', content: 'Багш нартаа маш их баярлалаа.' },
           { id: 2, studentName: 'Тэмүүлэн', className: '11Б', content: 'Та бүхний ачаар бид илүү ихийг сурч байна.' },
@@ -27,32 +26,27 @@ export function RainPage() {
   }, []);
 
   return (
-    <div className="relative min-h-[calc(100vh-56px)]">
+    <div className="relative min-h-screen">
       <RainBackground />
 
-      {/* Header */}
+      {/* Top bar */}
       <div className="relative z-10 flex items-center justify-between px-4 py-3">
-        <h2 className="text-xl font-bold text-rose-500">
-          💖 Хүүхдүүдийн сэтгэгдэл
-        </h2>
-        <div className="flex gap-3">
+        <div className="flex gap-2">
           <Link to="/">
             <Button variant="ghost" size="sm">
               ← Буцах
             </Button>
           </Link>
-          <Link to="/write">
-            <Button size="sm">
-              ✏️ Бичих
-            </Button>
-          </Link>
         </div>
+        <Link to="/write">
+          <Button size="sm">✏️ Бичих</Button>
+        </Link>
       </div>
 
       {/* Falling hearts */}
       {loading ? (
         <div className="flex items-center justify-center h-64">
-          <div className="text-2xl text-rose-300 animate-pulse">Ачаалж байна... 🌸</div>
+          <div className="text-xl text-primary/50 animate-pulse">Ачаалж байна...</div>
         </div>
       ) : (
         <FallingHeartList comments={comments} />

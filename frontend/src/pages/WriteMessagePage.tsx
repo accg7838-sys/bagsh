@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import { Button } from '../components/ui/Button';
 import { Input } from '../components/ui/Input';
 import { Textarea } from '../components/ui/Textarea';
@@ -9,7 +9,6 @@ import { getTeachers } from '../services/teacherService';
 import type { Teacher } from '../types/teacher';
 
 export function WriteMessagePage() {
-  const navigate = useNavigate();
   const [teachers, setTeachers] = useState<Teacher[]>([]);
   const [studentName, setStudentName] = useState('');
   const [className, setClassName] = useState('');
@@ -24,7 +23,6 @@ export function WriteMessagePage() {
     getTeachers()
       .then(setTeachers)
       .catch(() => {
-        // Fallback teachers
         setTeachers([
           { id: 1, name: 'Батболд багш', subject: 'Математик', slug: 'batbold-bagsh' },
           { id: 2, name: 'Сарантуяа багш', subject: 'Монгол хэл', slug: 'sarantuya-bagsh' },
@@ -69,7 +67,7 @@ export function WriteMessagePage() {
         });
       }
 
-      setSuccess('Таны сэтгэгдэл амжилттай илгээгдлээ! Админ зөвшөөрсний дараа харагдах болно. 🌸');
+      setSuccess('Таны сэтгэгдэл амжилттай илгээгдлээ! Админ зөвшөөрсний дараа харагдах болно.');
       setStudentName('');
       setClassName('');
       setContent('');
@@ -82,8 +80,8 @@ export function WriteMessagePage() {
   };
 
   const messageTypeOptions = [
-    { value: 'public', label: '🌧 Нийтийн сэтгэгдэл (бороо хуудсанд харагдана)' },
-    { value: 'teacher', label: '💌 Багшид хувийн захидал' },
+    { value: 'public', label: '🌧 Нийтийн сэтгэгдэл' },
+    { value: 'teacher', label: '💌 Багшид захидал' },
   ];
 
   const teacherOptions = [
@@ -92,16 +90,19 @@ export function WriteMessagePage() {
   ];
 
   return (
-    <div className="min-h-[calc(100vh-56px)] flex items-center justify-center px-4 py-8">
-      <div className="max-w-lg w-full">
-        <div className="text-center mb-8">
-          <h2 className="text-3xl font-bold text-rose-500 mb-2">✏️ Сэтгэгдэл үлдээх</h2>
-          <p className="text-slate/60">Багш нартаа талархлаа илэрхийлээрэй</p>
+    <div className="min-h-screen flex items-center justify-center px-4 py-8">
+      <div className="max-w-md w-full">
+        <div className="text-center mb-6">
+          <Link to="/" className="text-sm text-warm/50 hover:text-primary transition-colors no-underline">
+            ← Буцах
+          </Link>
+          <h2 className="text-2xl font-bold text-warm mt-2 mb-1">Сэтгэгдэл үлдээх</h2>
+          <p className="text-sm text-slate/50">Багш нартаа талархлаа илэрхийлээрэй</p>
         </div>
 
-        <form onSubmit={handleSubmit} className="bg-white rounded-3xl p-6 sm:p-8 shadow-xl border border-rose-100 space-y-4">
+        <form onSubmit={handleSubmit} className="bg-white rounded-2xl p-6 shadow-lg border border-primary/10 space-y-4">
           <Input
-            label="Таны нэр *"
+            label="Таны нэр"
             value={studentName}
             onChange={(e) => setStudentName(e.target.value)}
             placeholder="Жишээ: Анужин"
@@ -117,7 +118,7 @@ export function WriteMessagePage() {
           />
 
           <Select
-            label="Санваартны төрөл"
+            label="Төрөл"
             value={messageType}
             onChange={(e) => setMessageType(e.target.value)}
             options={messageTypeOptions}
@@ -125,7 +126,7 @@ export function WriteMessagePage() {
 
           {messageType === 'teacher' && (
             <Select
-              label="Багш сонгох *"
+              label="Багш сонгох"
               value={selectedTeacher}
               onChange={(e) => setSelectedTeacher(e.target.value)}
               options={teacherOptions}
@@ -133,7 +134,7 @@ export function WriteMessagePage() {
           )}
 
           <Textarea
-            label="Таны сэтгэгдэл *"
+            label="Сэтгэгдэл"
             value={content}
             onChange={(e) => setContent(e.target.value)}
             placeholder="Багшдаа хандаж сэтгэгдлээ бичээрэй... (хамгийн багадаа 5 тэмдэгт)"
@@ -149,14 +150,9 @@ export function WriteMessagePage() {
             <div className="p-3 rounded-xl bg-green-50 text-green-600 text-sm">{success}</div>
           )}
 
-          <div className="flex gap-3 pt-2">
-            <Button type="submit" disabled={submitting} className="flex-1">
-              {submitting ? 'Илгээж байна...' : '✨ Илгээх'}
-            </Button>
-            <Button type="button" variant="outline" onClick={() => navigate('/')}>
-              Буцах
-            </Button>
-          </div>
+          <Button type="submit" disabled={submitting} className="w-full">
+            {submitting ? 'Илгээж байна...' : '✨ Илгээх'}
+          </Button>
         </form>
       </div>
     </div>

@@ -30,7 +30,7 @@ export function TeacherSelectPage() {
     <div className="min-h-[calc(100vh-56px)] px-4 py-8">
       <div className="max-w-2xl mx-auto">
         <div className="text-center mb-8">
-          <h2 className="text-3xl font-bold text-rose-500 mb-2">👩‍🏫 Багшаа сонгоно уу</h2>
+          <h2 className="text-3xl font-bold text-primary mb-2">👩‍🏫 Багшаа сонгоно уу</h2>
           <p className="text-slate/60">Өөртөө ирсэн захидлуудыг харахын тулд нэр дээрээ дарна уу</p>
         </div>
 
@@ -44,7 +44,7 @@ export function TeacherSelectPage() {
 
         {loading ? (
           <div className="text-center py-12">
-            <div className="text-2xl text-rose-300 animate-pulse">Ачаалж байна...</div>
+            <div className="text-2xl text-primary/30 animate-pulse">Ачаалж байна...</div>
           </div>
         ) : filtered.length === 0 ? (
           <div className="text-center py-12 text-slate/50">

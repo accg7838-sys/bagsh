@@ -39,7 +39,7 @@ export function FallingHeartList({ comments }: FallingHeartListProps) {
   if (comments.length === 0) {
     return (
       <div className="flex items-center justify-center h-64">
-        <p className="text-xl text-rose-300">Одоогоор сэтгэгдэл байхгүй байна 🌸</p>
+        <p className="text-xl text-primary/30">Одоогоор сэтгэгдэл байхгүй байна 🌸</p>
       </div>
     );
   }

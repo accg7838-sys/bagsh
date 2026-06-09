@@ -15,21 +15,21 @@ export function Button({
 }: ButtonProps) {
   const base = cn(
     'inline-flex items-center justify-center rounded-xl font-semibold transition-all duration-200 cursor-pointer',
-    'focus:outline-none focus:ring-2 focus:ring-rose-400 focus:ring-offset-2',
+    'focus:outline-none focus:ring-2 focus:ring-primary/40 focus:ring-offset-2',
     'disabled:opacity-50 disabled:cursor-not-allowed'
   );
 
   const variants: Record<string, string> = {
-    primary: 'bg-rose-500 text-white hover:bg-rose-600 shadow-md hover:shadow-lg',
-    secondary: 'bg-gold-400 text-brown hover:bg-gold-500 shadow-md hover:shadow-lg',
-    outline: 'border-2 border-rose-300 text-rose-500 hover:bg-rose-50',
-    ghost: 'text-rose-500 hover:bg-rose-50',
+    primary: 'bg-primary text-white hover:bg-primary-dark shadow-md hover:shadow-lg',
+    secondary: 'bg-accent text-white hover:bg-amber-500 shadow-md hover:shadow-lg',
+    outline: 'border-2 border-primary/30 text-primary hover:bg-primary/5',
+    ghost: 'text-primary hover:bg-primary/5',
     danger: 'bg-red-500 text-white hover:bg-red-600',
   };
 
   const sizes: Record<string, string> = {
     sm: 'px-3 py-1.5 text-sm',
-    md: 'px-6 py-2.5 text-base',
+    md: 'px-5 py-2.5 text-base',
     lg: 'px-8 py-3.5 text-lg',
   };
 

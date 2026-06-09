@@ -45,7 +45,7 @@ export function Modal({ isOpen, onClose, title, children, size = 'md' }: ModalPr
           <h2 className="text-xl font-bold text-slate">{title}</h2>
           <button
             onClick={onClose}
-            className="p-1 rounded-lg hover:bg-rose-50 text-slate/50 hover:text-rose-500 transition-colors cursor-pointer"
+            className="p-1 rounded-lg hover:bg-primary/5 text-slate/50 hover:text-primary transition-colors cursor-pointer"
           >
             ✕
           </button>

@@ -26,7 +26,7 @@ export function AdminSidebar({ currentPath, onLogout }: AdminSidebarProps) {
             className={cn(
               'whitespace-nowrap px-3 py-1.5 rounded-lg text-sm no-underline transition-colors',
               currentPath === link.to
-                ? 'bg-rose-100 text-rose-600 font-medium'
+                ? 'bg-primary/10 text-primary-dark font-medium'
                 : 'text-slate/70 hover:bg-gray-100'
             )}
           >
@@ -44,7 +44,7 @@ export function AdminSidebar({ currentPath, onLogout }: AdminSidebarProps) {
       {/* Desktop sidebar */}
       <aside className="hidden lg:flex fixed left-0 top-0 bottom-0 w-64 bg-white border-r border-gray-200 flex-col">
         <div className="p-6 border-b border-gray-100">
-          <h1 className="text-xl font-bold text-rose-500">🌸 Админ</h1>
+          <h1 className="text-xl font-bold text-primary">🌸 Админ</h1>
           <p className="text-sm text-slate/50 mt-1">Багшдаа Баярлалаа</p>
         </div>
 
@@ -56,7 +56,7 @@ export function AdminSidebar({ currentPath, onLogout }: AdminSidebarProps) {
               className={cn(
                 'flex items-center gap-3 px-4 py-3 rounded-xl text-sm no-underline transition-all duration-200',
                 currentPath === link.to
-                  ? 'bg-rose-100 text-rose-600 font-medium shadow-sm'
+                  ? 'bg-primary/10 text-primary-dark font-medium shadow-sm'
                   : 'text-slate hover:bg-gray-100'
               )}
             >

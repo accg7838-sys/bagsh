@@ -1,15 +1,16 @@
 @import "tailwindcss";
 
 @theme {
-  --color-cream: #FFF8F0;
-  --color-rose: #F43F5E;
-  --color-rose-dark: #BE123C;
-  --color-rose-light: #FDA4AF;
-  --color-gold: #F59E0B;
-  --color-gold-light: #FDE68A;
-  --color-brown: #78350F;
+  --color-cream: #FFFAF5;
+  --color-primary: #E8784A;
+  --color-primary-dark: #C55D32;
+  --color-primary-light: #F5C4A8;
+  --color-accent: #F4A460;
+  --color-accent-light: #FDE4C5;
+  --color-warm: #8B5E3C;
   --color-slate: #334155;
-  --color-warm-pink: #FFF1F2;
+  --color-soft-bg: #FFF8F2;
+  --color-card: #FFFFFF;
 }
 
 * {
@@ -20,7 +21,7 @@
 
 body {
   font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
-  background-color: var(--color-cream);
+  background-color: #FFFAF5;
   color: var(--color-slate);
   min-height: 100vh;
 }
@@ -29,31 +30,31 @@ body {
 .heart-shape {
   position: relative;
   background: white;
-  border-radius: 12px;
-  box-shadow: 0 4px 12px rgba(244, 63, 94, 0.15);
-  padding: 16px 20px;
-  max-width: 200px;
-  min-width: 160px;
+  border-radius: 14px;
+  box-shadow: 0 4px 16px rgba(232, 120, 74, 0.1);
+  padding: 14px 16px;
+  max-width: 180px;
+  min-width: 140px;
 }
 
 .heart-shape::before {
   content: '♥';
   position: absolute;
-  top: -14px;
+  top: -12px;
   left: 50%;
   transform: translateX(-50%);
-  font-size: 24px;
-  color: var(--color-rose);
-  filter: drop-shadow(0 2px 4px rgba(244, 63, 94, 0.3));
+  font-size: 20px;
+  color: #E8784A;
+  filter: drop-shadow(0 1px 3px rgba(232, 120, 74, 0.2));
 }
 
 /* Gradient backgrounds */
 .bg-warm-gradient {
-  background: linear-gradient(135deg, #FFF8F0 0%, #FFF1F2 30%, #FCE7F3 60%, #FFF8F0 100%);
+  background: linear-gradient(180deg, #FFFAF5 0%, #FFF3E8 40%, #FFEDDC 70%, #FFFAF5 100%);
 }
 
 .bg-rain-gradient {
-  background: linear-gradient(180deg, #FFF1F2 0%, #FCE7F3 50%, #FFF8F0 100%);
+  background: linear-gradient(180deg, #FFF3E8 0%, #FFEDDC 50%, #FFFAF5 100%);
 }
 
 /* Animation keyframes */
@@ -79,9 +80,9 @@ body {
   width: 6px;
 }
 ::-webkit-scrollbar-track {
-  background: #FFF1F2;
+  background: #FFF3E8;
 }
 ::-webkit-scrollbar-thumb {
-  background: #FDA4AF;
+  background: #F5C4A8;
   border-radius: 3px;
 }

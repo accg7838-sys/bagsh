@@ -95,7 +95,7 @@ export function AdminTeachersPage() {
                     <div className="flex items-center justify-end gap-1.5">
                       <button
                         onClick={() => handleEdit(teacher)}
-                        className="px-2 py-1 text-xs rounded-lg bg-rose-50 text-rose-500 hover:bg-rose-100 transition-colors cursor-pointer"
+                        className="px-2 py-1 text-xs rounded-lg bg-primary/5 text-primary hover:bg-primary/10 transition-colors cursor-pointer"
                       >
                         ✏️ Засах
                       </button>

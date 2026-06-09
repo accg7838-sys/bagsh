@@ -19,7 +19,7 @@ export function AdminDashboardPage() {
   }, []);
 
   const statCards = [
-    { label: 'Багш нар', value: data?.stats.teacherCount || 0, icon: '👩‍🏫', color: 'bg-rose-50 text-rose-600' },
+    { label: 'Багш нар', value: data?.stats.teacherCount || 0, icon: '👩‍🏫', color: 'bg-primary/5 text-primary-dark' },
     { label: 'Нийтийн сэтгэгдэл', value: data?.stats.rainCommentCount || 0, icon: '💬', color: 'bg-blue-50 text-blue-600' },
     { label: 'Хувийн захидал', value: data?.stats.teacherLetterCount || 0, icon: '💌', color: 'bg-purple-50 text-purple-600' },
     { label: 'Хүлээгдэж буй', value: data?.stats.pendingCount || 0, icon: '⏳', color: 'bg-yellow-50 text-yellow-600' },

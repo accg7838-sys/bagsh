@@ -13,7 +13,6 @@ export function HomePage() {
     getHomeLetter()
       .then(setLetter)
       .catch(() => {
-        // Use fallback content if API fails
         setLetter({
           id: 0,
           title: 'Багш нартаа баярлалаа',
@@ -24,31 +23,27 @@ export function HomePage() {
   }, []);
 
   return (
-    <div className="min-h-[calc(100vh-56px)] flex flex-col items-center justify-center px-4 py-12">
-      {/* Decorative elements */}
-      <div className="absolute top-20 left-10 text-5xl opacity-20 animate-bounce" style={{ animationDuration: '3s' }}>🌸</div>
-      <div className="absolute top-40 right-16 text-4xl opacity-15 animate-bounce" style={{ animationDuration: '4s', animationDelay: '1s' }}>✨</div>
-      <div className="absolute bottom-40 left-16 text-4xl opacity-15 animate-bounce" style={{ animationDuration: '3.5s', animationDelay: '2s' }}>💖</div>
-      <div className="absolute bottom-20 right-10 text-5xl opacity-20 animate-bounce" style={{ animationDuration: '4.5s', animationDelay: '0.5s' }}>🌺</div>
-
+    <div className="min-h-screen flex flex-col items-center justify-center px-4 py-8">
       {/* Main content */}
-      <div className="relative z-10 max-w-2xl w-full text-center">
-        <h1 className="text-4xl sm:text-5xl md:text-6xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-rose-500 via-rose-400 to-gold-400 mb-8">
+      <div className="relative z-10 max-w-xl w-full text-center">
+        {/* Decorative top */}
+        <div className="text-5xl mb-6">💝</div>
+
+        <h1 className="text-3xl sm:text-4xl font-bold text-warm mb-6">
           {letter?.title || 'Багш нартаа баярлалаа'}
         </h1>
 
         {loading ? (
-          <div className="bg-white/80 backdrop-blur-sm rounded-3xl p-8 sm:p-12 shadow-xl border border-rose-100 animate-pulse">
-            <div className="h-4 bg-rose-100 rounded w-3/4 mx-auto mb-3" />
-            <div className="h-4 bg-rose-100 rounded w-1/2 mx-auto mb-3" />
-            <div className="h-4 bg-rose-100 rounded w-2/3 mx-auto" />
+          <div className="bg-white/80 backdrop-blur-sm rounded-3xl p-6 sm:p-10 shadow-lg border border-primary/10 animate-pulse">
+            <div className="h-4 bg-primary/10 rounded w-3/4 mx-auto mb-3" />
+            <div className="h-4 bg-primary/10 rounded w-1/2 mx-auto mb-3" />
+            <div className="h-4 bg-primary/10 rounded w-2/3 mx-auto" />
           </div>
         ) : (
-          <div className="bg-white/80 backdrop-blur-sm rounded-3xl p-8 sm:p-12 shadow-xl border border-rose-100 mb-10">
-            <div className="text-5xl mb-6">💝</div>
+          <div className="bg-white/90 backdrop-blur-sm rounded-3xl p-6 sm:p-10 shadow-lg border border-primary/10 mb-8">
             {letter?.content.split('\n').map((paragraph, i) => (
               paragraph.trim() ? (
-                <p key={i} className="text-lg sm:text-xl text-slate leading-relaxed mb-4 last:mb-0">
+                <p key={i} className="text-base sm:text-lg text-slate leading-relaxed mb-4 last:mb-0">
                   {paragraph}
                 </p>
               ) : (
@@ -58,30 +53,29 @@ export function HomePage() {
           </div>
         )}
 
-        <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-          <Button
-            size="lg"
-            onClick={() => navigate('/rain')}
-            className="w-full sm:w-auto text-lg px-10"
-          >
-            💖 Хүүхдүүдийн сэтгэгдлийг харах
-          </Button>
-          <Button
-            variant="outline"
-            size="lg"
+        {/* Single main button */}
+        <Button
+          size="lg"
+          onClick={() => navigate('/rain')}
+          className="w-full sm:w-auto text-lg px-12 py-4 rounded-2xl"
+        >
+          💖 Хүүхдүүдийн сэтгэгдлийг харах
+        </Button>
+
+        {/* Subtle secondary links */}
+        <div className="mt-8 flex items-center justify-center gap-6 text-sm">
+          <button
             onClick={() => navigate('/write')}
-            className="w-full sm:w-auto text-lg px-10"
+            className="text-warm/60 hover:text-primary transition-colors cursor-pointer underline underline-offset-2"
           >
             ✏️ Сэтгэгдэл үлдээх
-          </Button>
-        </div>
-
-        <div className="mt-6">
+          </button>
+          <span className="text-warm/20">|</span>
           <button
             onClick={() => navigate('/teacher')}
-            className="text-rose-400 hover:text-rose-500 text-sm underline transition-colors cursor-pointer"
+            className="text-warm/60 hover:text-primary transition-colors cursor-pointer underline underline-offset-2"
           >
-            👩‍🏫 Багш нар нэвтрэх
+            👩‍🏫 Багш нар
           </button>
         </div>
       </div>

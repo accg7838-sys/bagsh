@@ -88,8 +88,8 @@ export function AdminHomeLetterPage() {
         {/* Preview */}
         <div className="bg-white rounded-2xl shadow-sm border border-gray-200 p-6">
           <h3 className="font-semibold text-slate mb-4">Урьдчилсан харагдац</h3>
-          <div className="bg-warm-gradient rounded-2xl p-8 border border-rose-100 text-center">
-            <h2 className="text-2xl font-bold text-rose-500 mb-4">{title || 'Гарчиг'}</h2>
+          <div className="bg-warm-gradient rounded-2xl p-8 border border-primary/10 text-center">
+            <h2 className="text-2xl font-bold text-primary mb-4">{title || 'Гарчиг'}</h2>
             <div className="bg-white/80 backdrop-blur-sm rounded-2xl p-6">
               <div className="text-3xl mb-4">💝</div>
               {content ? (

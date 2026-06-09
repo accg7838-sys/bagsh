@@ -16,10 +16,10 @@ const Textarea = forwardRef<HTMLTextAreaElement, TextareaProps>(
         <textarea
           ref={ref}
           className={cn(
-            'w-full px-4 py-2.5 rounded-xl border border-rose-200 bg-white resize-none',
-            'focus:outline-none focus:ring-2 focus:ring-rose-400 focus:border-transparent',
+            'w-full px-4 py-2.5 rounded-xl border border-primary/20 bg-white resize-none',
+            'focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent',
             'transition-colors duration-200',
-            'placeholder:text-rose-light/60',
+            'placeholder:text-primary-light/60',
             error && 'border-red-400 focus:ring-red-400',
             className
           )}

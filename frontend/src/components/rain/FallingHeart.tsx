@@ -23,7 +23,7 @@ export function FallingHeart({ studentName, content, x, delay, duration, index }
         borderStyle: 'solid',
       }}
     >
-      <p className="text-xs font-bold text-rose-400 mb-1 truncate">{studentName}</p>
+      <p className="text-xs font-bold text-primary mb-1 truncate">{studentName}</p>
       <p className="text-sm text-slate leading-snug line-clamp-3">{content}</p>
     </div>
   );
